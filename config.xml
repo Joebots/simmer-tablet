@@ -25,4 +25,5 @@
     <engine name="android" spec="~6.3.0" />
     <engine name="browser" spec="~5.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <plugin name="com.github.warp.cordova-firmata" spec="https://github.com/Joebots/cordova-firmata.git" />
 </widget>
