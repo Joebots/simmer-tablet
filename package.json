@@ -10,7 +10,9 @@
   "author": "Joebotics Incorporated",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "~6.3.0",
+    "android-versions": "^1.2.1",
+    "com.github.warp.cordova-firmata": "https://github.com/Joebots/cordova-firmata.git",
+    "cordova-android": "^6.4.0",
     "cordova-browser": "~5.0.1",
     "cordova-firmata": "git+https://github.com/Joebots/cordova-firmata.git",
     "cordova-plugin-whitelist": "^1.3.2"
