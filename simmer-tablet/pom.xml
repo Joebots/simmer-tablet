@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.joebotics</groupId>
+  <artifactId>simmer-tablet</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>simmer-tablet</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+    <repository>
+      <id>s3.release</id>
+      <url>s3://artifacts_build-joebotics.us/release</url>
+    </repository>
+    <repository>
+      <id>s3.snapshot</id>
+      <url>s3://artifacts_build-joebotics.us/snapshot</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.joebotics</groupId>
+      <artifactId>simmer</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>co.axiomzen.maven.wagons</groupId>
+        <artifactId>maven-s3-wagon</artifactId>
+        <version>1.2.6</version>
+      </extension>
+    </extensions>
+  </build>
+</project>
