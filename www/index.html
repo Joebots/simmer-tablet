@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
-	<meta name="format-detection" content="telephone=no">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <!-- Properties can be specified to influence deferred binding -->
     <meta name="gwt:property" content="locale=en_US"/>
 
@@ -17,24 +18,51 @@
     <script src="js/raphael.min.js"></script>
     <script src="js/burner.js"></script>
 
-    <!-- Config resources -->
+    <!-- Configuration -->
     <script>
-        const ARDUINO_PINS = {
-            DIGITAL_2 : "2",
-            DIGITAL_3 : "3",
-            DIGITAL_4 : "4",
-            DIGITAL_5 : "5",
-            DIGITAL_6 : "6",
-            DIGITAL_7 : "7",
-            DIGITAL_8 : "8",
-            DIGITAL_9 : "9",
-            DIGITAL_10: "10",
-            DIGITAL_11: "11",
-            DIGITAL_12: "12",
-            DIGITAL_13: "13"
+        const ARDUINO_GPIO = {
+            GPIO_2: "2",
+            GPIO_3: "3",
+            GPIO_4: "4",
+            GPIO_5: "5",
+            GPIO_6: "6",
+            GPIO_7: "7",
+            GPIO_8: "8",
+            GPIO_9: "9",
+            GPIO_10: "10",
+            GPIO_11: "11",
+            GPIO_12: "12",
+            GPIO_13: "13"
         };
-
-        const ODROID_C2_GPIO  = {
+        const RASPBERRY_PI3_GPIO = {
+            GPIO_2: "3",
+            GPIO_3: "5",
+            GPIO_4: "7",
+            GPIO_5: "29",
+            GPIO_6: "31",
+            GPIO_7: "26",
+            GPIO_8: "24",
+            GPIO_9: "21",
+            GPIO_10: "19",
+            GPIO_11: "23",
+            GPIO_12: "32",
+            GPIO_13: "33",
+            GPIO_14: "8",
+            GPIO_15: "10",
+            GPIO_16: "36",
+            GPIO_17: "11",
+            GPIO_18: "12",
+            GPIO_19: "35",
+            GPIO_20: "38",
+            GPIO_21: "40",
+            GPIO_22: "15",
+            GPIO_23: "16",
+            GPIO_24: "18",
+            GPIO_25: "22",
+            GPIO_26: "37",
+            GPIO_27: "13"
+        };
+        const ODROID_C2_GPIO = {
             GPIO_0: "11",
             GPIO_1: "12",
             GPIO_2: "13",
@@ -55,10 +83,11 @@
             GPIO_26: "32",
             GPIO_27: "36"
         };
+        var GpioConfig = ARDUINO_GPIO;
 
         var globalBus;
 
-        var mm = function(value) {
+        var mm = function (value) {
             return Math.floor(value / 0.169);
         };
 
@@ -75,13 +104,13 @@
         var BreadboardConfig = {
             width: mm(65),
             height: mm(112),
-            thickness : mm(2),
+            thickness: mm(2),
             pitch: pitch,
-            banks:[
-                {type: "BUS", rows : 2,    y: topMargin, x: leftMargin, height: pitch * rows, dir: 'y'},
-                {type: "TERMINAL", rows : rows, y: topMargin, x: mm(16),  width: rowWidth},
-                {type: "TERMINAL", rows : rows, y: topMargin, x: mm(36),  width: rowWidth},
-                {type: "GPIO", rows : rows, y: topMargin, x: mm(62),  width: rowWidth}
+            banks: [
+                {type: "BUS", rows: 2, y: topMargin, x: leftMargin, height: pitch * rows, dir: 'y'},
+                {type: "TERMINAL", rows: rows, y: topMargin, x: mm(16), width: rowWidth},
+                {type: "TERMINAL", rows: rows, y: topMargin, x: mm(36), width: rowWidth},
+                {type: "GPIO", rows: rows, y: topMargin, x: mm(62), width: rowWidth}
             ]
         };
 
@@ -97,12 +126,10 @@
             SIMULATION_SPEED: 117,
             CURRENT_SPEED: 50
         };
-
-        var GpioConfig = ARDUINO_PINS;
     </script>
 
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
     <!-- Simmer GWT App static resources -->
     <!-- Google Blockly -->
@@ -132,7 +159,8 @@
 
 <div id="burner-controls" class="container">
     <div class="row">
-        <a class="col s2 btn btn-large waves-effect waves-light" id="back-btn"><i class="material-icons">chevron_left</i> Back</a>
+        <a class="col s2 btn btn-large waves-effect waves-light" id="back-btn"><i
+                class="material-icons">chevron_left</i> Back</a>
         <div class="col s8 burner-command-desc" id="wizard-text"></div>
         <a class="col s2 btn btn-large waves-effect waves-light" id="forward-btn">Next <i class="material-icons">chevron_right</i></a>
     </div>
@@ -140,7 +168,8 @@
 
 <div id="app-controls">
     <div id="wizard-toolbar">
-        <a id="oscope" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">timeline</i></a>
+        <a id="oscope" class="btn-floating btn-large waves-effect waves-light"><i
+                class="material-icons">timeline</i></a>
         <a id="reset" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">cached</i></a>
     </div>
 </div>
@@ -151,41 +180,41 @@
 <script src="simmer/simmer.nocache.js"></script>
 
 <script>
-    $(function() {
+    $(function () {
         console.log("loading");
         globalBus = new EventBus();
 
         var bboard = new BreadBoard(BreadboardConfig);
 
-        globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_WORKING, function(e){
+        globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_WORKING, function (e) {
             bboard.layout(e.model);
             window.workingCircuitEvent = e;
         });
 
-        globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_BROKEN_ANY, function(e){
+        globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_BROKEN_ANY, function (e) {
             console.log("BROKEN");
         });
 
-        globalBus.bind(".*", function(evt){
+        globalBus.bind(".*", function (evt) {
             console.log(evt.model);
         });
 
-        globalBus.bind(BreadBoard.CircuitStates.SYSTEM_LOADED, function(e) {
+        globalBus.bind(BreadBoard.CircuitStates.SYSTEM_LOADED, function (e) {
             console.log("system.loaded");
             bboard.setTarget("breadboard");
             //bboard.showAllBanks();
         });
 
-        $("#bblayout").click(function(evt){
-            top.ALLOW_BB_MOVE = top.ALLOW_BB_MOVE?!top.ALLOW_BB_MOVE:true;
+        $("#bblayout").click(function (evt) {
+            top.ALLOW_BB_MOVE = top.ALLOW_BB_MOVE ? !top.ALLOW_BB_MOVE : true;
         });
 
-        $("#reset").click(function(evt){
+        $("#reset").click(function (evt) {
             globalBus.fire("circuit.working", window.workingCircuitEvent);
             $("#wizard-text").html("");
         });
 
-        $("#oscope").click(function(evt){
+        $("#oscope").click(function (evt) {
             $("#burner-controls").fadeToggle();
         });
     });
