@@ -39,7 +39,7 @@ Controller.prototype.bindEventHandlers = function () {
         var cmpName = model.el.substring(model.el.lastIndexOf(".") + 1, model.el.indexOf("Elm"));
 
         var pic = $("#active-component-picture");
-        var img = `<img width="170" height="110" src="/assets/imgs/components/${cmpName.toLowerCase()}.png"/>`;
+        var img = `<img width="170" height="110" src="imgs/components/${cmpName.toLowerCase()}.png"/>`;
         pic.html(img).fadeToggle(this.anim);
     };
 
