@@ -62,16 +62,13 @@
 
 #active-component-picture {
     position: absolute;
-    top: 40px;
-    left: 400px;
     display: none;
-    layout: table-cell;
     vertical-align: middle;
     text-align: center;
     background: white;
-    top: 485px;
+    top: 80%;
     height: 116px;
-    left: 300px;
+    left: 330px;
 }
 
 @-webkit-keyframes pulsate-white
