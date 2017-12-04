@@ -33,6 +33,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
+        StatusBar.hide();
     }
 };
 
