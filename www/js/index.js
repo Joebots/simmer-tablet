@@ -19,7 +19,6 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        navigator.splashscreen.show();
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -35,6 +34,9 @@ var app = {
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
         StatusBar.hide();
+        cordova.getAppVersion.getVersionNumber().then(function (version) {
+            $('#app-version').text(version);
+        });
     }
 };
 
