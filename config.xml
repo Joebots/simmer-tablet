@@ -47,4 +47,5 @@
     <plugin name="com.github.warp.cordova-firmata" spec="https://github.com/Joebots/cordova-firmata.git" />
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
+    <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
 </widget>
