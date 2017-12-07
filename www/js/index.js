@@ -19,6 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
+        navigator.splashscreen.show();
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 

@@ -197,6 +197,7 @@
         globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_WORKING, function (e) {
             bboard.layout(e.model);
             window.workingCircuitEvent = e;
+            navigator.splashscreen.hide();
         });
 
         globalBus.bind(BreadBoard.CircuitStates.CIRCUIT_BROKEN_ANY, function (e) {
