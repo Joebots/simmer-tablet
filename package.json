@@ -1,7 +1,7 @@
 {
   "name": "com.joebotics.simmer",
   "displayName": "BadgerBox",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The BadgerBox is an integrated development environment for embedded programming and circuitry development.",
   "main": "index.js",
   "scripts": {
