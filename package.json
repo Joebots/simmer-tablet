@@ -13,7 +13,7 @@
     "android-versions": "^1.2.1",
     "cordova-android": "^6.4.0",
     "cordova-browser": "~5.0.1",
-    "com.joebotics.cordova-firmata": "git+https://github.com/Joebots/cordova-firmata.git",
+    "com.joebotics.cordova-firmata": "https://github.com/Joebots/cordova-firmata.git",
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-statusbar": "^2.3.0",
