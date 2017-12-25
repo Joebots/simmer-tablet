@@ -1,8 +1,8 @@
 {
   "name": "com.joebotics.simmer",
-  "displayName": "BadgerBox",
+  "displayName": "Simmer",
   "version": "1.0.5",
-  "description": "The BadgerBox is an integrated development environment for embedded programming and circuitry development.",
+  "description": "The Simmer is an integrated development environment for embedded programming and circuitry development.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "android-versions": "^1.2.1",
-    "com.github.warp.cordova-firmata": "https://github.com/Joebots/cordova-firmata.git",
+    "com.joebotics.cordova-firmata": "https://github.com/Joebots/cordova-firmata.git",
     "cordova-android": "^6.4.0",
     "cordova-browser": "~5.0.1",
     "cordova-firmata": "git+https://github.com/Joebots/cordova-firmata.git",
@@ -24,7 +24,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "com.github.warp.cordova-firmata": {},
+      "com.joebotics.cordova-firmata": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-app-version": {}
