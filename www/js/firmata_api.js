@@ -10,19 +10,22 @@ FirmataAPI.prototype.connect = function() {
 };
 
 FirmataAPI.prototype.disconnect = function() {
+    firmata.close();
 };
 
 FirmataAPI.prototype.gpioWrite = function(pinNumber, value) {
     console.log("FirmataAPI.gpioWrite(" + pinNumber + ", " + value + ")");
-    firmata.digitalWrite(pinNumber, value ? firmata.HIGH : firmata.LOW);
+    firmata.analogWrite(pinNumber, value);
 };
 
-FirmataAPI.prototype.gpioRead = function(pinNumber) {
+FirmataAPI.prototype.gpioRead = function(pinNumber, callback) {
     console.log("FirmataAPI.gpioRead(" + pinNumber + ")");
-    return firmata.digitalRead(pinNumber);
+    firmata.analogRead(pinNumber, callback);
 };
 
-FirmataAPI.prototype.gpioOn = function() {
+FirmataAPI.prototype.gpioOn = function(pinNumber, callback) {
+    console.log("FirmataAPI.gpioOn(" + pinNumber + ")");
+    firmata.onPinChanged(pinNumber, callback, Bgpio.appendTextJsConsole);
 };
 
 Bgpio.BoardAPI = new FirmataAPI();
