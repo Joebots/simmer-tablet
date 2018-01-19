@@ -28,4 +28,9 @@ FirmataAPI.prototype.gpioOn = function(pinNumber, callback) {
     firmata.onPinChanged(pinNumber, callback, Bgpio.appendTextJsConsole);
 };
 
+FirmataAPI.prototype.reset = function() {
+    console.log("FirmataAPI.reset()");
+    firmata.reset();
+}
+
 Bgpio.BoardAPI = new FirmataAPI();
