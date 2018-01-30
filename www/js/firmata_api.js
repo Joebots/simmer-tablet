@@ -18,6 +18,11 @@ FirmataAPI.prototype.gpioWrite = function(pinNumber, value) {
     firmata.analogWrite(pinNumber, value);
 };
 
+FirmataAPI.prototype.servoWrite = function(pinNumber, angle) {
+    console.log("FirmataAPI.servoWrite(" + pinNumber + ", " + angle + ")");
+    firmata.servoWrite(pinNumber, angle);
+};
+
 FirmataAPI.prototype.gpioRead = function(pinNumber, callback) {
     console.log("FirmataAPI.gpioRead(" + pinNumber + ")");
     firmata.analogRead(pinNumber, callback);
