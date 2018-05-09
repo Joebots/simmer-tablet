@@ -33,6 +33,11 @@ FirmataAPI.prototype.gpioOn = function(pinNumber, callback) {
     firmata.onPinChanged(pinNumber, callback, Bgpio.appendTextJsConsole);
 };
 
+FirmataAPI.prototype.onI2CEvent = function(address, register, messageLength, callback) {
+    console.log(`FirmataAPI.onI2CEvent(${address}, ${register}, ${messageLength}, ${callback})`);
+    firmata.onI2CEvent(address, register, messageLength, callback, Bgpio.appendTextJsConsole);
+};
+
 FirmataAPI.prototype.reset = function() {
     console.log("FirmataAPI.reset()");
     firmata.reset();
