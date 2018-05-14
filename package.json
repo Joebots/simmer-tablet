@@ -1,7 +1,7 @@
 {
   "name": "com.joebotics.simmer",
   "displayName": "Simmer",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "The Simmer is an integrated development environment for embedded programming and circuitry development.",
   "main": "index.js",
   "scripts": {
