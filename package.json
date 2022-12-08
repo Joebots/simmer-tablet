@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "android-versions": "^1.2.1",
-    "cordova-android": "^6.4.0",
+    "cordova-android": "^11.0.0",
     "cordova-browser": "~5.0.1",
     "com.joebotics.cordova-firmata": "https://github.com/Joebots/cordova-firmata.git",
     "cordova-plugin-app-version": "^0.1.9",
