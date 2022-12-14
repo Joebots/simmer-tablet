@@ -1,5 +1,5 @@
 {
-  "name": "com.joebotics.simmer",
+  "name": "@Joebots/com.joebotics.simmer",
   "displayName": "Simmer",
   "version": "1.2.7",
   "description": "The Simmer is an integrated development environment for embedded programming and circuitry development.",
